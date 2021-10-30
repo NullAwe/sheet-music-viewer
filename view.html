@@ -116,17 +116,29 @@
         });
       }
       
-      document.getElementById("move_left").addEventListener("click", (e) => {
+      document.getElementById("move_left").addEventListener("click", (e) => { moveLeft(); });
+      
+      document.getElementById("move_right").addEventListener("click", (e) => { moveRight(); });
+      
+      document.addEventListener("keydown", (e) => {
+        if (e.keyCode == 37) {
+          moveLeft();
+        } else if (e.keyCode == 39) {
+          moveRight();
+        }
+      });
+      
+      function moveLeft() {
         if (state.curPage == 1) return;
         state.curPage -= 2;
         render();
-      });
+      }
       
-      document.getElementById("move_right").addEventListener("click", (e) => {
+      function moveLeft() {
         if (state.curPage > state.pdf._pdfInfo.numPages - 2) return;
         state.curPage += 2;
         render();
-      });
+      }
     </script>
   </body>
 </html>
