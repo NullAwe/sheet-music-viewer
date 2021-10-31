@@ -89,8 +89,7 @@
         var right = document.getElementById("page_right");
         state.pdf.getPage(state.curPage).then((page) => {
           var context = left.getContext("2d");
-          var newCanvas = document.createElement('canvas');
-          left.parentNode.replaceChild(newCanvas, left);
+          context.clearRect(0, 0, right.width, right.height);
           var viewport = page.getViewport(1);
           left.width = viewport.width;
           left.height = viewport.height;
@@ -108,8 +107,7 @@
         
         state.pdf.getPage(state.curPage + 1).then((page) => {
           var context = right.getContext("2d");
-          var newCanvas = document.createElement('canvas');
-          right.parentNode.replaceChild(newCanvas, right);
+          context.clearRect(0, 0, right.width, right.height);
           var viewport = page.getViewport(1);
           right.width = viewport.width;
           right.height = viewport.height;
