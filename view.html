@@ -102,7 +102,9 @@
         
         if (state.curPage >= state.pdf._pdfInfo.numPages) {
           var context = right.getContext("2d");
-          context.clearRect(0, 0, right.width, right.height);
+          var viewport = page.getViewport(1);
+          right.width = viewport.width;
+          right.height = viewport.height;
           return;
         }
         
