@@ -94,19 +94,15 @@
           var viewport = page.getViewport(1);
           left.width = viewport.width;
           left.height = viewport.height;
+          right.width = viewport.width;
+          right.height = viewport.height;
           page.render({
             canvasContext: context,
             viewport: viewport
           });
         });
         
-        if (state.curPage >= state.pdf._pdfInfo.numPages) {
-          var context = right.getContext("2d");
-          var viewport = page.getViewport(1);
-          right.width = viewport.width;
-          right.height = viewport.height;
-          return;
-        }
+        if (state.curPage >= state.pdf._pdfInfo.numPages) return;
         
         state.pdf.getPage(state.curPage + 1).then((page) => {
           var context = right.getContext("2d");
