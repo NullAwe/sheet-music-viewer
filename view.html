@@ -76,9 +76,7 @@
     <script>
       var state = {
         pdf: null,
-        curPage: 1,
-        lTask: null,
-        rTask: null
+        curPage: 1
       }
       
       pdfjsLib.getDocument("./sheets/" + new URLSearchParams(window.location.search).get("file_name")).then((pdf) => {
@@ -87,16 +85,16 @@
       });
       
       function render() {
-        if (state.lTask != null) state.lTask.cancel();
-        if (state.rTask != null) state.rTask.cancel();
         var left = document.getElementById("page_left");
         var right = document.getElementById("page_right");
         state.pdf.getPage(state.curPage).then((page) => {
           var context = left.getContext("2d");
+          var newCanvas = document.createElement('canvas');
+          left.parentNode.replaceChild(newCanvas, left);
           var viewport = page.getViewport(1);
           left.width = viewport.width;
           left.height = viewport.height;
-          state.lTask = page.render({
+          page.render({
             canvasContext: context,
             viewport: viewport
           });
@@ -110,10 +108,12 @@
         
         state.pdf.getPage(state.curPage + 1).then((page) => {
           var context = right.getContext("2d");
+          var newCanvas = document.createElement('canvas');
+          right.parentNode.replaceChild(newCanvas, right);
           var viewport = page.getViewport(1);
           right.width = viewport.width;
           right.height = viewport.height;
-          state.rTask = page.render({
+          page.render({
             canvasContext: context,
             viewport: viewport
           });
