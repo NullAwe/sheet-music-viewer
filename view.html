@@ -85,11 +85,12 @@
       });
       
       function render() {
+        replaceCanvas(document.getElementById("page_left"));
+        replaceCanvas(document.getElementById("page_right"));
         var left = document.getElementById("page_left");
         var right = document.getElementById("page_right");
         state.pdf.getPage(state.curPage).then((page) => {
           var context = left.getContext("2d");
-          context.clearRect(0, 0, right.width, right.height);
           var viewport = page.getViewport(1);
           left.width = viewport.width;
           left.height = viewport.height;
@@ -107,7 +108,6 @@
         
         state.pdf.getPage(state.curPage + 1).then((page) => {
           var context = right.getContext("2d");
-          context.clearRect(0, 0, right.width, right.height);
           var viewport = page.getViewport(1);
           right.width = viewport.width;
           right.height = viewport.height;
@@ -141,6 +141,16 @@
           render();
         }
       });
+      
+      function replaceCanvas(canvas) {
+        var newCanvas = document.createElement("canvas");
+        var newContext = newCanvas.getContext("2d");
+        var oldId = canvas.id;
+        canvas.parentNode.insertBefore(newCanvas, canvas.nextSibling);
+        canvas.parentNode.removeChild(canvas);
+        newCanvas.setId(oldId);
+        return newContext;
+      }
     </script>
   </body>
 </html>
