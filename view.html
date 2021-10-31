@@ -148,7 +148,7 @@
         var oldId = canvas.id;
         canvas.parentNode.insertBefore(newCanvas, canvas.nextSibling);
         canvas.parentNode.removeChild(canvas);
-        newCanvas.setId(oldId);
+        newCanvas.id(oldId);
         return newContext;
       }
     </script>
