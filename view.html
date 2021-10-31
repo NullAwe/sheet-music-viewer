@@ -87,8 +87,8 @@
       });
       
       function render() {
-        if (lTask != null) lTask.cancel();
-        if (rTask != null) rTask.cancel();
+        if (state.lTask != null) state.lTask.cancel();
+        if (state.rTask != null) state.rTask.cancel();
         var left = document.getElementById("page_left");
         var right = document.getElementById("page_right");
         state.pdf.getPage(state.curPage).then((page) => {
@@ -96,7 +96,7 @@
           var viewport = page.getViewport(1);
           left.width = viewport.width;
           left.height = viewport.height;
-          lTask = page.render({
+          state.lTask = page.render({
             canvasContext: context,
             viewport: viewport
           });
@@ -113,7 +113,7 @@
           var viewport = page.getViewport(1);
           right.width = viewport.width;
           right.height = viewport.height;
-          rTask = page.render({
+          state.rTask = page.render({
             canvasContext: context,
             viewport: viewport
           });
