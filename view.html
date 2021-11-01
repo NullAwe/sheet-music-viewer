@@ -128,10 +128,12 @@
         render();
       });
       
-//       document.addEventListener("keydown", (e) => {
-//         if (e.key == 37) {
-//           if (state.curPage == 1) return;
-//           state.curPage -= 2;
+      document.addEventListener("keydown", (e) => {
+        if (e.key == 37) {
+          if (state.curPage == 1) return;
+          state.curPage -= 2;
+          render();
+        }
 //         } else if (e.key == 39) {
 //           if (state.curPage > state.pdf._pdfInfo.numPages - 2) return;
 //           state.curPage += 2;
@@ -143,7 +145,7 @@
 //           else state.curPage = numPages - 1;
 //         }
 //         render();
-//       });
+      });
       
       function replaceCanvas(canvas) {
         var newCanvas = document.createElement("canvas");
