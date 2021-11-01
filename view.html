@@ -129,7 +129,7 @@
       });
       
       document.addEventListener("keydown", (e) => {
-        if (e.key == 37) {
+        if (e.keyCode == 37) {
           if (state.curPage == 1) return;
           state.curPage -= 2;
           render();
