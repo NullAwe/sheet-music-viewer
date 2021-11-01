@@ -61,10 +61,10 @@
       #move_up {
         width: 100%;
         height: 10%;
-/*         position: absolute;
+        position: absolute;
         top: 0;
         left: 0;
-        z-index: 20; */
+        z-index: 20;
       }
     </style>
   </head>
@@ -140,10 +140,11 @@
         render();
       });
       
+      
       document.getElementById("move_up").addEventListener("click", (e) => {
         state.curPage = 1;
         render();
-      }
+      });
       
       document.addEventListener("keydown", (e) => {
         if (e.keyCode == 37) {
