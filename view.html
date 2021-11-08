@@ -7,6 +7,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
     
     <style>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      
       html {
         overflow: hidden;
       }
@@ -60,6 +62,15 @@
         left: 0;
         z-index: 20;
       }
+      
+      #back_button {
+        width: 10%;
+        height: 10%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 30;
+      }
     </style>
   </head>
   
@@ -77,6 +88,10 @@
       <div id="move_right"></div>
       
       <div id="move_up"></div>
+      
+      <dif id="back_button">
+        <span class="material-icons">arrow_back</span>
+      </div>
     </div>
     
     <script>
