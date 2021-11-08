@@ -63,26 +63,17 @@
         z-index: 20;
       }
       
-      #back_button {
+      #back_wrapper {
         width: 10%;
         height: 10%;
         position: absolute;
         top: 0;
         left: 0;
         z-index: 30;
-        display: table;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
-      
-      #back_wrapper_one {
-        display: table-cell;
-        vertical-align: middle;
-      }
-      
-      #back_wrapper_two {
-        margin-left: auto;
-        margin-right: auto;
-      }
-    </style>
   </head>
   
   <body>
@@ -100,14 +91,10 @@
       
       <div id="move_up"></div>
       
-      <span class="material-icons" id="back_button">arrow_back</span>
-<!--         <div id="back_wrapper_one">
-          <div id="back_wrapper_two">
-            <span class="material-icons">arrow_back</span>
-          </div>
-        </div>
+      <div id="back_wrapper">
+        <span class="material-icons">arrow-back</span>
       </div>
-    </div> -->
+    </div>
     
     <script>
       var state = {
