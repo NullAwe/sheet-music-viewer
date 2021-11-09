@@ -152,7 +152,6 @@
         render();
       });
       
-      
       document.getElementById("move_up").addEventListener("click", (e) => {
         state.curPage = 1;
         render();
@@ -182,6 +181,10 @@
         newCanvas.id = oldId;
         return newContext;
       }
+      
+      document.getElementById("back_wrapper").addEventListener("click", (e) => {
+        location.href = "https://nullawe.github.io/sheet-music-viewer/";
+      });
     </script>
   </body>
 </html>
