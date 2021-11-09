@@ -64,17 +64,25 @@
       }
       
       #back_wrapper {
-        position: relative;
         width: 0;
         height: 10%;
         padding-left: 10%;
-        position: absolute;
+        position: relative;
         top: 0;
         left: 0;
         z-index: 30;
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+      
+      #back_button {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 30;
       }
     </style>
   </head>
@@ -95,7 +103,7 @@
       <div id="move_up"></div>
       
       <div id="back_wrapper">
-        <span class="material-icons">arrow_back</span>
+        <span id="back_button" class="material-icons">arrow_back</span>
       </div>
     </div>
     
